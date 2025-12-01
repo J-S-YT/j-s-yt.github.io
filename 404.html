@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <link rel="icon" href="https://j-s-yt.github.io/J-S-Y/jose.ico" type="image/x-icon">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>404 | Página não encontrada</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #2c3e50, #4ca1af);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 500px;
+        }
+
+        h1 {
+            font-size: 5em;
+            margin: 0;
+        }
+
+        p {
+            font-size: 1.5em;
+            margin: 10px 0 30px;
+        }
+
+        button {
+            background-color: #ff3860;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-size: 1em;
+        }
+
+        button:hover {
+            background-color: #e02950;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>404</h1>
+        <p>Oops! Página não encontrada</p>
+        <button id="backButton">Voltar à página anterior</button>
+    </div>
+
+    <script>
+        // Função do botão voltar com fallback
+        const backButton = document.getElementById('backButton');
+        backButton.addEventListener('click', () => {
+            history.back();
+            setTimeout(() => {
+                window.location.href = "https://heylink.me/Jose-Status-Yt/";
+            }, 700);
+        });
+
+        // Atualizar a página automaticamente a cada 10 segundos (10000 ms)
+        setTimeout(() => {
+            location.reload();
+        }, 10000);
+    </script>
+</body>
+
+</html>
