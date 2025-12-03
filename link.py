@@ -54,7 +54,7 @@ def gerar_arquivos():
             f.write(html_code)
 
         # Monta a URL final
-        url_final = f"https://j-s-yt.github.io/{nome_arquivo}"
+        url_final = f"j-s-yt.github.io/{nome_arquivo}"
 
         # Copiar para a área de transferência
         janela.clipboard_clear()
