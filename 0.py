@@ -71,30 +71,24 @@ def gerar_arquivos():
 
 # 🔥 Função para enviar tudo para o GitHub Pages
 def enviar_para_github():
-    repo = os.getcwd()
+    repo = r"F:\GitHub\J-S-YT\j-s-yt.github.io"
 
     try:
-        # git add .
+        # força entrar no repo certo
         subprocess.run([GIT, "-C", repo, "add", "."], check=True)
 
-        # git commit
-        subprocess.run([GIT, "-C", repo, "commit", "-m", "Envio automático de arquivos HTML"], check=True)
+        # commit (não quebra se não tiver nada novo)
+        subprocess.run([GIT, "-C", repo, "commit", "-m", "Auto commit HTML"], check=False)
 
-        # git push
-        subprocess.run([GIT, "-C", repo, "push"], check=True)
+        # push com branch definida
+        subprocess.run([GIT, "-C", repo, "push", "origin", "main"], check=True)
 
-        messagebox.showinfo("Sucesso", "Arquivos enviados para o GitHub Pages!")
+        messagebox.showinfo("Sucesso", "Enviado para GitHub com sucesso!")
 
-    except FileNotFoundError:
+    except subprocess.CalledProcessError as e:
         messagebox.showerror(
             "Erro",
-            "Git não encontrado!\n\nVerifique o caminho do git.exe no topo do código."
-        )
-
-    except subprocess.CalledProcessError:
-        messagebox.showerror(
-            "Erro", 
-            "Falha ao enviar para o GitHub.\n\nPossíveis causas:\n- Não está logado no GitHub Desktop\n- Repositório incorreto\n- Alterações já commitadas"
+            f"Falha no Git.\n\nDetalhes:\n{e}"
         )
 
 
