@@ -5,7 +5,7 @@ import os
 import subprocess
 
 # Caminho do Git (GitHub Desktop)
-GIT = r"C:\Users\user\AppData\Local\GitHubDesktop\app-3.5.4\resources\app\git\mingw64\bin\git.exe"
+GIT = r"C:\Users\LAERCIO\AppData\Local\GitHubDesktop\app-3.5.4\resources\app\git\mingw64\bin\git.exe"
 
 # Caracteres disponíveis
 caracteres = 'AEIJMNOSTUYaeijmnostuy0123456789'
@@ -71,7 +71,7 @@ def gerar_arquivos():
 
 # 🔥 Função para enviar tudo para o GitHub Pages
 def enviar_para_github():
-    repo = r"C:\GitHub\j-s-yt.github.io"
+    repo = r"F:\GitHub\J-S-YT\j-s-yt.github.io"
 
     try:
         # força entrar no repo certo
