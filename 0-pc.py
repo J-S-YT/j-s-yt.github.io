@@ -4,17 +4,17 @@ from tkinter import messagebox
 import os
 import subprocess
 
-# Caminho do Git (GitHub Desktop)
-GIT = r"C:\Users\LAERCIO\AppData\Local\GitHubDesktop\app-3.5.4\resources\app\git\mingw64\bin\git.exe"
+# Caminho do Git
+GIT = r"C:\Program Files\Git\bin\git.exe"
 
 # Caracteres disponíveis
 caracteres = 'AEIJMNOSTUYaeijmnostuy0123456789'
 
-# Função para gerar nome aleatório
+#
 def gerar_nome(comprimento):
     return ''.join(random.choice(caracteres) for _ in range(comprimento)) + ".html"
 
-# Função principal para gerar arquivos
+#
 def gerar_arquivos():
     try:
         comprimento = int(entry_comprimento.get())
@@ -69,27 +69,20 @@ def gerar_arquivos():
         messagebox.showerror("Erro", "Use apenas números no comprimento!")
 
 
-# 🔥 Função para enviar tudo para o GitHub Pages
+# 🔥
 def enviar_para_github():
     repo = r"F:\GitHub\J-S-YT\j-s-yt.github.io"
 
     try:
-        # força entrar no repo certo
+        subprocess.run([GIT, "-C", repo, "pull"], check=False)
         subprocess.run([GIT, "-C", repo, "add", "."], check=True)
-
-        # commit (não quebra se não tiver nada novo)
         subprocess.run([GIT, "-C", repo, "commit", "-m", "Auto commit HTML"], check=False)
-
-        # push com branch definida
         subprocess.run([GIT, "-C", repo, "push", "origin", "main"], check=True)
 
         messagebox.showinfo("Sucesso", "Enviado para GitHub com sucesso!")
 
     except subprocess.CalledProcessError as e:
-        messagebox.showerror(
-            "Erro",
-            f"Falha no Git.\n\nDetalhes:\n{e}"
-        )
+        messagebox.showerror("Erro", f"Falha no Git:\n{e}")
 
 
 # Interface gráfica
