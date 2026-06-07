@@ -71,7 +71,7 @@ def gerar_arquivos():
 
 # 🔥
 def enviar_para_github():
-    repo = r"F:\GitHub\J-S-YT\j-s-yt.github.io"
+    repo = r"D:\GitHub\J-S-YT\j-s-yt.github.io"
 
     try:
         subprocess.run([GIT, "-C", repo, "pull"], check=False)
