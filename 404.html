@@ -2,77 +2,91 @@
 <html lang="pt-BR">
 
 <head>
-    <link rel="icon" href="https://j-s-yt.github.io/J-S-Y/jose.ico" type="image/x-icon">
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>404 | Página não encontrada</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="https://j-s-yt.github.io/J-S-Y/link/jose.ico" type="image/x-icon" />
+    <meta name="google-adsense-account" content="ca-pub-8906506021952813" />
+    <title>JSY Foto 404</title>
     <style>
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', sans-serif;
-            background: linear-gradient(to right, #2c3e50, #4ca1af);
-            color: #fff;
+            font-family: "Arial", sans-serif;
+            background-color: #000000;
+            color: #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            text-align: center;
+            min-height: 100vh;
         }
 
         .container {
-            max-width: 500px;
+            text-align: center;
+            padding: 40px;
+            max-width: 600px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 123, 255, 0.3);
         }
 
         h1 {
-            font-size: 5em;
-            margin: 0;
+            font-size: 64px;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
         }
 
         p {
-            font-size: 1.5em;
-            margin: 10px 0 30px;
+            font-size: 20px;
+            margin-bottom: 40px;
+            line-height: 1.5;
         }
 
-        button {
-            background-color: #ff3860;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 8px;
-            border: none;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s;
-            font-size: 1em;
+        a {
+            display: inline-block;
+            text-decoration: none;
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
-        button:hover {
-            background-color: #e02950;
+        a:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <h1>404</h1>
-        <p>Oops! Página não encontrada</p>
-        <button id="backButton">Voltar à página anterior</button>
+        <h1>JSY Foto 404</h1>
+        <p>Oops! A página que você procura não foi encontrada.</p>
+        <a id="backButton" href="#">Voltar</a>
     </div>
 
     <script>
-        // Função do botão voltar com fallback
-        const backButton = document.getElementById('backButton');
-        backButton.addEventListener('click', () => {
-            history.back();
-            setTimeout(() => {
-                window.location.href = "https://heylink.me/Jose-Status-Yt/";
-            }, 700);
-        });
+        const referrer = document.referrer;
+        const backButton = document.getElementById("backButton");
 
-        // Atualizar a página automaticamente a cada 10 segundos (10000 ms)
+        if (!referrer || referrer === window.location.href) {
+            // Usuário entrou direto na página
+            backButton.textContent = "Voltar para a Página Inicial";
+            backButton.href = "https://j-s-an.github.io/#erro";
+        } else {
+            // Usuário veio de outra página
+            backButton.textContent = "Voltar para a página anterior";
+            backButton.href = "#";
+            backButton.addEventListener("click", function (e) {
+                e.preventDefault();
+                window.history.back();
+            });
+        }
+        // Atualizar a página automaticamente a cada 1 minuto (60000 ms)
         setTimeout(() => {
             location.reload();
-        }, 10000);
+        }, 60000);
     </script>
 </body>
 
